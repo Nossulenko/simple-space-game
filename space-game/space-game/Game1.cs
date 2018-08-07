@@ -18,8 +18,8 @@ namespace space_game
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferHeight = 720;
-            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 1200;
+            graphics.PreferredBackBufferWidth = 1900;
         }
 
         Texture2D meteorite;
@@ -29,6 +29,7 @@ namespace space_game
         SpriteFont spaceF;
         SpriteFont timerF;
 
+        Spaceship player = new Spaceship();
         
        
         protected override void Initialize()
@@ -64,7 +65,7 @@ namespace space_game
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            player.shipUpdate();
 
             base.Update(gameTime);
         }
@@ -76,6 +77,8 @@ namespace space_game
 
             spriteBatch.Begin();
 
+            spriteBatch.Draw(space, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(spaceship, new Vector2(player.position.X - 34, player.position.Y - 50), Color.White);
 
 
             spriteBatch.End();
