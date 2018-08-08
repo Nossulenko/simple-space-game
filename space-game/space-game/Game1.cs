@@ -30,6 +30,7 @@ namespace space_game
         SpriteFont timerF;
 
         Spaceship player = new Spaceship();
+        Meteorite testMeteorite = new Meteorite(250);
         
        
         protected override void Initialize()
@@ -65,7 +66,8 @@ namespace space_game
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            player.shipUpdate();
+            player.shipUpdate(gameTime);
+            testMeteorite.meteoriteUpdate(gameTime);
 
             base.Update(gameTime);
         }
@@ -79,6 +81,8 @@ namespace space_game
 
             spriteBatch.Draw(space, new Vector2(0, 0), Color.White);
             spriteBatch.Draw(spaceship, new Vector2(player.position.X - 34, player.position.Y - 50), Color.White);
+            spriteBatch.Draw(meteorite, new Vector2(testMeteorite.position.X -
+                testMeteorite.radius, testMeteorite.position.Y - testMeteorite.radius));
 
 
             spriteBatch.End();
