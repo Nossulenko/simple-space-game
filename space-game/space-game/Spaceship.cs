@@ -24,22 +24,19 @@ namespace space_game
 
             if (gameController.inGame)
             {
-                if (kState.IsKeyDown(Keys.Right))
+                if (kState.IsKeyDown(Keys.Right) && position.X < 1900)
                 {
                     position.X += speed * dt;
-
                 }
-                else if (kState.IsKeyDown(Keys.Down))
+                else if (kState.IsKeyDown(Keys.Down) && position.Y < 1200)
                 {
                     position.Y += speed * dt;
-
                 }
-                else if (kState.IsKeyDown(Keys.Left))
+                else if (kState.IsKeyDown(Keys.Left) && position.X > 0)
                 {
                     position.X -= speed * dt;
-
                 }
-                else if (kState.IsKeyDown(Keys.Up))
+                else if (kState.IsKeyDown(Keys.Up) && position.Y > 0)
                 {
                     position.Y -= speed * dt;
                 }

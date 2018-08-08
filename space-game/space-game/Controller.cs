@@ -31,6 +31,10 @@ namespace space_game
                 if (kState.IsKeyDown(Keys.Enter))
                 {
                     inGame = true;
+                    totalT = 0f;
+                    timer = 2D;
+                    maxTime = 2D;
+                    nextSpeed = 240;
                 }
             }
             if (timer <= 0)
