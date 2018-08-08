@@ -11,32 +11,39 @@ namespace space_game
 {
     class Spaceship
     {
-        public Vector2 position = new Vector2(100, 100);
-        public int speed = 200;
+        public int speed = 180;
+        static public Vector2 defaultPosition = new Vector2(900, 600);
+        public Vector2 position = defaultPosition;
 
-        public void shipUpdate(GameTime gameTime)
+
+        public void shipUpdate(GameTime gameTime, Controller gameController)
         {
             KeyboardState kState = Keyboard.GetState();
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             //MouseState mState = Mouse.GetState();
 
-            if (kState.IsKeyDown(Keys.Right))
+            if (gameController.inGame == false)
             {
-                position.X+= speed * (float)dt;
+                if (kState.IsKeyDown(Keys.Right))
+                {
+                    position.X += speed * dt;
 
-            }else if (kState.IsKeyDown(Keys.Down)) 
-            {
-                position.Y+= speed * (float)dt;
+                }
+                else if (kState.IsKeyDown(Keys.Down))
+                {
+                    position.Y += speed * dt;
 
-            }else if (kState.IsKeyDown(Keys.Left))
-            {
-                position.X-= speed * (float)dt;
+                }
+                else if (kState.IsKeyDown(Keys.Left))
+                {
+                    position.X -= speed * dt;
 
-            }else if (kState.IsKeyDown(Keys.Up))
-            {
-                position.Y-= speed * (float)dt;
-            }
-            
+                }
+                else if (kState.IsKeyDown(Keys.Up))
+                {
+                    position.Y -= speed * dt;
+                }
+            }            
         }
     }
 }

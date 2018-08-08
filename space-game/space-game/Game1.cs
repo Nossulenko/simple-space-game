@@ -67,7 +67,7 @@ namespace space_game
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            player.shipUpdate(gameTime);
+            player.shipUpdate(gameTime, gameController);
             gameController.conUpdate(gameTime);
 
             for (int i = 0; i < gameController.meteorites.Count; i++)
