@@ -15,6 +15,7 @@ namespace space_game
         public double timer = 2D;
         public double maxTime = 2D;
         public int nextSpeed = 240;
+        public float totalT = 0f;
 
         public bool inGame = false;
         public void conUpdate(GameTime gameTime)
@@ -22,6 +23,7 @@ namespace space_game
             if (inGame)
             {
                 timer -= gameTime.ElapsedGameTime.TotalSeconds;
+                totalT += (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
             else
             {

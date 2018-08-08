@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace space_game
 {
@@ -110,6 +111,8 @@ namespace space_game
                 int tempRadius = gameController.meteorites[i].radius;
                 spriteBatch.Draw(meteorite, new Vector2(tempPos.X - tempRadius, tempPos.Y - tempRadius), Color.White);
             }
+
+            spriteBatch.DrawString(timerF, "Time: " + Math.Floor(gameController.totalT).ToString(), new Vector2(3, 3), Color.White);
 
             spriteBatch.End();
 
