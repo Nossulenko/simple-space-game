@@ -73,6 +73,16 @@ namespace space_game
             for (int i = 0; i < gameController.meteorites.Count; i++)
             {
                 gameController.meteorites[i].meteoriteUpdate(gameTime);
+
+                int sum = gameController.meteorites[i].radius + 30;
+                if (Vector2.Distance(gameController.meteorites[i].position, player.position) < sum)
+                {
+                    gameController.inGame = false;
+                    player.position = Spaceship.defaultPosition;
+                    i = gameController.meteorites.Count;
+                    gameController.meteorites.Clear();
+                    
+                }
             }
 
             base.Update(gameTime);
