@@ -74,6 +74,10 @@ namespace space_game
             for (int i = 0; i < gameController.meteorites.Count; i++)
             {
                 gameController.meteorites[i].meteoriteUpdate(gameTime);
+                if (gameController.meteorites[i].position.X < (0 - gameController.meteorites[i].radius))
+                {
+                    gameController.meteorites[i].offscreen = true;
+                }
 
                 int sum = gameController.meteorites[i].radius + 30;
                 if (Vector2.Distance(gameController.meteorites[i].position, player.position) < sum)
@@ -85,6 +89,7 @@ namespace space_game
                     
                 }
             }
+            gameController.meteorites.RemoveAll(meteor => meteor.offscreen == true);
 
             base.Update(gameTime);
         }
