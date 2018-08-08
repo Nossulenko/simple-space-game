@@ -15,10 +15,11 @@ namespace space_game
         public Vector2 position = new Vector2(600, 300);
         public int speed;
         public int radius = 59;
-
+        static Random rand = new Random();
         public Meteorite(int newSpeed)
         {
             speed = newSpeed;
+            position = new Vector2(1900 + radius,rand.Next(0,1200));
         }
         public void meteoriteUpdate(GameTime gameTime)
         {

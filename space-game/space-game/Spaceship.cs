@@ -12,7 +12,7 @@ namespace space_game
     class Spaceship
     {
         public Vector2 position = new Vector2(100, 100);
-        public int speed = 180;
+        public int speed = 200;
 
         public void shipUpdate(GameTime gameTime)
         {
