@@ -22,7 +22,7 @@ namespace space_game
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             //MouseState mState = Mouse.GetState();
 
-            if (gameController.inGame == false)
+            if (gameController.inGame)
             {
                 if (kState.IsKeyDown(Keys.Right))
                 {

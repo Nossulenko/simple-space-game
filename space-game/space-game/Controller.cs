@@ -15,12 +15,21 @@ namespace space_game
         public double timer = 2D;
         public double maxTime = 2D;
         public int nextSpeed = 240;
+
         public bool inGame = false;
         public void conUpdate(GameTime gameTime)
         {
             if (inGame)
             {
                 timer -= gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else
+            {
+                KeyboardState kState = Keyboard.GetState();
+                if (kState.IsKeyDown(Keys.Enter))
+                {
+                    inGame = true;
+                }
             }
             if (timer <= 0)
             {

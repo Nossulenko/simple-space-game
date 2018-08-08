@@ -88,6 +88,12 @@ namespace space_game
             spriteBatch.Draw(space, new Vector2(0, 0), Color.White);
             spriteBatch.Draw(spaceship, new Vector2(player.position.X - 34, player.position.Y - 50), Color.White);
 
+            if (gameController.inGame == false) 
+            {
+                string menuMessage = "Press Enter to Begin!";
+                Vector2 sizeOfText = spaceF.MeasureString(menuMessage);
+                spriteBatch.DrawString(spaceF, menuMessage, new Vector2(900 - sizeOfText.X / 2, 200), Color.White);
+            }
             for (int i = 0; i < gameController.meteorites.Count; i++)
             {
                 Vector2 tempPos = gameController.meteorites[i].position;
